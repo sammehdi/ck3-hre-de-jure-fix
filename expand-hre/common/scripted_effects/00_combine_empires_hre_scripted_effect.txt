@@ -1,0 +1,37 @@
+﻿# Combines all empires into the HRE. This is to keep the Princely Elective law
+# This was modeled after create_custom_empire_effect in common/scripted_effects/00_major_decisions_scripted_effects_3.txt, line 404
+combine_empires_hre_effect = {
+	custom_tooltip = combine_empires_effect
+
+	hidden_effect = {
+		# Go through every empire title. Set all kingdom de jures to the HRE
+		every_held_title = {
+			limit = {
+				AND = {
+					tier = tier_empire
+					# Make sure we're not destroying the HRE
+					NOT = { this = title:e_hre }
+				}
+			}
+			# For every de jure kingdom
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				# Set the new de jure liege title to be the HRE
+				set_de_jure_liege_title = title:e_hre
+			}
+		}
+
+		every_held_title = { # Destroy all other empire AND kingdom titles you own too
+			limit = {
+				AND = {
+					tier = tier_empire
+					NOT = { this = title:e_hre }
+				}
+				
+			}
+			root = { destroy_title = prev }
+		}
+	}
+}

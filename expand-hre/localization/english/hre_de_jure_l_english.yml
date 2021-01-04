@@ -1,0 +1,7 @@
+﻿l_english:
+  combine_empire_decision_title:0 "Expand the Holy Roman Empire"
+  combine_empires_decision_desc:0 "The Holy Roman Empire has grown. Let us reform the laws and administration of the newly incorporated realms to reflect their new status as part of the Holy Roman Empire."
+  combine_empires_decision_tooltip:0 "It is time to recognize our newly added lands as part of the Holy Roman Empire."
+  combine_empires_decision_confirm:0 "Send out the heralds!"
+
+  combine_empires_effect:0 "All de jure kingdoms of other held empire titles become de jure kingdoms of the Holy Roman Empire"

@@ -1,0 +1,51 @@
+﻿combine_empires_hre_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 24 	# every 2 years
+	title = combine_empire_decision_title
+	desc = combine_empires_decision_desc
+	selection_tooltip = combine_empires_decision_tooltip
+	confirm_text = combine_empires_decision_confirm
+
+	is_shown = {
+		# Must be the Holy Roman Empire
+		has_primary_title = title:e_hre
+		# Must have Princely Elective law, otherwise flavor doesn't make sense
+		title:e_hre = {
+			has_title_law = princely_elective_succession_law
+		}
+		# Must hold at least 1 other empire
+		any_held_title = {
+			count >= 2
+			tier = tier_empire
+		}
+	}
+
+	# Mostly same as is_shown
+	is_valid = {
+		has_primary_title = title:e_hre
+		any_held_title = {
+			count >= 2
+			tier = tier_empire
+		}
+	}
+
+	# Hefty cost for flavor (getting new administration into region, changing local laws, getting Head of Faith to recognize De Jure change)
+	cost = {
+		gold = 1000
+		prestige = 2000
+		piety = 600
+	}
+
+	effect = {
+		combine_empires_hre_effect = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
